@@ -20,7 +20,6 @@ ft_list_push_front:
 
 	pop qword[rax]	; pop rsi; mov [rax],rsi
 	pop rdi
-	;pop qword[rax + 8]
 	mov rcx, [rdi]
 	mov [rax + 8], rcx
 	mov [rdi], rax

@@ -48,7 +48,7 @@ ft_list_remove_if:
 	mov rdi, [r10]		;	curr->data as an argument
 	cmp rdi, 0
 	je .compare_null
-	call rdx
+	call rdx			;	call cmp function
 	jmp .compare_end
 
 .compare_null:
@@ -64,7 +64,7 @@ ft_list_remove_if:
 	pop r8
 	pop r9
 	pop r10
-	cmp rax, 0
+	cmp rax, 0			;	cmp funtion return value check
 	jne .if_curr_check
 	jmp .if_compare
 
@@ -93,7 +93,7 @@ ft_list_remove_if:
 	push r8
 	push r10
 	mov rdi, [r10]		;	curr->data as an argument
-	call rcx 
+	call rcx			;	call free_fct function  
 	pop r10
 	pop r8
 	mov r8, r10			;	temp = curr 
@@ -122,4 +122,3 @@ ft_list_remove_if:
 
 .return:
 	ret
-	

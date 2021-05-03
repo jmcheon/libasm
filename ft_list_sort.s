@@ -33,21 +33,21 @@ ft_list_sort:
 	push r10
 	push rdx
 	push rcx
-	call rcx 
+	call rcx 			;	call cmp function
 	pop rcx
 	pop rdx
 	pop r10
 	pop r9
 	pop r8
-	cmp rax, 0
+	cmp eax, 0			;	returned value of cmp function 32bit singed integer
 	jg .list_swap_call
 	jmp .b_next
 
 .list_swap_call:
-	mov rsi, [r9]		;	data = b->data
-	mov rdi, [r10]		;	data2 = b->next->data	
-	mov [r9], rdi		;	b->data = data2
-	mov [r10], rsi		;	b->next->data = data
+	mov r11, [r9]		;	data = b->data
+	mov r12, [r10]		;	data2 = b->next->data	
+	mov [r9], r12		;	b->data = data2
+	mov [r10], r11		;	b->next->data = data
 	jmp .b_next
 
 .b_next:

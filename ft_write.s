@@ -12,18 +12,16 @@ section .text
 
 
 ft_write:
-	mov	rax, 1	; sys_write
+	mov	rax, 1				;	sys_write
 	syscall
-	cmp	rax, 0	; compare si le retour du syscall est egal a 0
-	jl	.error	; si rax est inferieur a 0 on va a error
+	cmp	rax, 0
+	jl	.error
 	ret	
 
 .error:
 	neg	rax
-	;push rdi
-	mov	rdi, rax; rdi sert de tampon car apres rax prendera le retour de errno location
-
-	call __errno_location	; errno location renvoie un pointeur sur errno
-	mov	[rax], rdi	; ici rax contient l'adresse de errno donc en faisant ca on met rdi dans errno
+	mov	rdi, rax			;	temp for calling 
+	call __errno_location	;	return value of errno_location is pointer to errno	
+	mov	[rax], rdi			;	putting rdi in errno
 	mov	rax, -1	
 	ret

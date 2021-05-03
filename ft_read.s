@@ -12,9 +12,9 @@ section .text
 
 
 ft_read:
-	mov	rax, 0	; sys_read
+	mov	rax, 0	;	sys_read
 	syscall
-	cmp	rax, 0
+	cmp	rax, 0	;	
 	jl	.error
 	ret	
 

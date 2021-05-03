@@ -1,7 +1,8 @@
-
-;				type	size	name   
-;	argument	char *	8(ptr)	s    
-;	variable	size_t	8(long)	i    
+;	int	ft_strcmp(const char *s1, const char *s2)
+;				type	size	name   register
+;	argument	char *	8(ptr)	s1		rdi 
+;	argument	char *	8(ptr)	s2		rsi 
+;	variable	size_t	8(long)	i		rax 
 
 section .text
 	global ft_strcmp
@@ -11,34 +12,22 @@ ft_strcmp:
 	jmp .loop
 	
 	.loop:
-		mov dh, BYTE [rsi + rax]
-		mov dl, BYTE [rdi + rax]
-		cmp dl, 0
+		movzx edx, BYTE [rsi + rax]
+		movzx ecx, BYTE [rdi + rax]
+		cmp ecx, 0
 		jne .check_diff
-		jmp .endloop
+		jmp .return
 
 	.check_diff:
-		cmp dh, dl 
-		jne .endloop
+		cmp edx, ecx
+		jne .return
 		jmp .increment
 
 	.increment:
 		inc rax 
 		jmp .loop
 
-	.greater:
-		mov rax, -1
+	.return:
+		sub ecx, edx
+		mov eax, ecx 
 		ret
-	.less:
-		mov rax, 1
-		ret
-	.equel:
-		mov rax, 0
-		ret
-
-	.endloop:
-		cmp dh, dl
-		ja .greater 
-		jb .less
-		je .equel
-
