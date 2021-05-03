@@ -14,6 +14,10 @@ section .text
 	global ft_atoi_base
 
 ft_atoi_base:
+	cmp rdi, 0
+	je .return_zero
+	cmp rsi, 0
+	je .return_zero
 	call .ft_check_base	
 	cmp rax, 0
 	je .return_zero

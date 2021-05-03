@@ -28,7 +28,7 @@ void	ft_list_remove_if(t_list **begin_list, void *data_ref,
 		int (*cmp)(), void (*free_fct)(void *));
 
 
-
+// testing functions
 int		ft_atoi_base_c(char *str, char *base);
 void	ft_list_remove_if_old(t_list **begin_list, void *data_ref,
 		int (*cmp)());

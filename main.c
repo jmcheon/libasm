@@ -107,6 +107,10 @@ void	ft_atoi_base_check(char *str, char *base)
 	printf("mine = %d\n", ft_atoi_base("", "0123456789"));
 	printf("real = %d\n",  ft_atoi_base_c("501", ""));
 	printf("mine = %d\n", ft_atoi_base("501", ""));
+	printf("real = %d\n",  ft_atoi_base_c(NULL, "0123456789"));
+	printf("mine = %d\n", ft_atoi_base(NULL, "0123456789"));
+	printf("real = %d\n",  ft_atoi_base_c("501", NULL));
+	printf("mine = %d\n", ft_atoi_base("501", NULL));
 	printf("real = %d\n",  ft_atoi_base_c("ff", "0123456789abcdef"));
 	printf("mine = %d\n", ft_atoi_base("ff", "0123456789abcdef"));
 //	printf("========================\n");

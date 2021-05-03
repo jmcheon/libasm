@@ -58,6 +58,8 @@ int		ft_atoi_base_c(char *str, char *base)
 	int sign;
 	int base_num;
 
+	if (str == NULL || base == NULL)
+		return (0);
 	if (!ft_check_base(base))
 		return (0);
 	base_num = ft_check_base(base);
