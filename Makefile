@@ -19,6 +19,10 @@ OBJS_B = $(SRCS_B:.s=.o)
 
 NASM = nasm
 
+CC = clang
+
+LIB = libasm.h
+
 LIBC = ar -rcs
 
 %.o : %.s
@@ -39,7 +43,12 @@ clean :
 
 fclean : clean
 	rm -f $(NAME)
+	rm -f a.out
+	rm -f libasm.h.gch
 
 re : fclean all
 
-.PHONY : all clean fclean re
+test : bonus
+	$(CC) main.c $(LIB) $(NAME)
+
+.PHONY : all bonus clean fclean re test 

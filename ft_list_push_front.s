@@ -14,19 +14,18 @@ ft_list_push_front:
 	push rsi
 	mov rdi, 0x10
 	call malloc
-	
 	cmp rax, 0
 	je .return
 
-	pop qword[rax]	; pop rsi; mov [rax],rsi
+	pop rsi
 	pop rdi
-	mov rcx, [rdi]
-	mov [rax + 8], rcx
-	mov [rdi], rax
+	mov [rax], rsi		;	list->data = data
+	mov rcx, [rdi]		;	temp = *begin_list
+	mov [rax + 8], rcx	;	list->next = temp 
+	mov [rdi], rax		;	*begin_list = list	
 	ret
 	
 
 .return:
-	mov rax, 0
 	ret
 

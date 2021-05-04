@@ -2,7 +2,8 @@
 ; int	ft_list_size(t_list *begin_list);
 
 ;			type		size	name		register 
-; argument	t_list*		8		begin_list	rdi
+; argument	t_list*		8(ptr)	begin_list	rdi
+; variable	size_t		8(long)	i			rax
 
 section .text
 	global ft_list_size

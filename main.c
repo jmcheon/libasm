@@ -20,6 +20,10 @@ void	ft_strcpy_check()
 	printf("========================\n");
 	printf("mine = %s\n", ft_strcpy(dst, "hello"));
 	printf("real = %s\n", strcpy(dst, "hello"));
+	printf("mine = %s\n", ft_strcpy(dst, "bonjour"));
+	printf("real = %s\n", strcpy(dst, "bonjour"));
+	printf("mine = %s\n", ft_strcpy(dst, ""));
+	printf("real = %s\n", strcpy(dst, ""));
 }
 
 void	ft_strcmp_check()
@@ -58,6 +62,12 @@ void	ft_strdup_check()
 	free(s);
 	s = NULL;
 	printf("mine = %s\n", s = ft_strdup("abcde"));
+	free(s);
+	s = NULL;
+	printf("real = %s\n", s = strdup(""));
+	free(s);
+	s = NULL;
+	printf("mine = %s\n", s = ft_strdup(""));
 	free(s);
 	s = NULL;
 }
@@ -101,22 +111,15 @@ void	ft_atoi_base_check(char *str, char *base)
 	printf("========================\n");
 	printf("ft_atoi_base check\n");
 	printf("========================\n");
-	printf("real = %d\n",  ft_atoi_base_c("123", "0123456789"));
 	printf("mine = %d\n", ft_atoi_base("123", "0123456789"));
-	printf("real = %d\n",  ft_atoi_base_c("", "0123456789"));
 	printf("mine = %d\n", ft_atoi_base("", "0123456789"));
-	printf("real = %d\n",  ft_atoi_base_c("501", ""));
 	printf("mine = %d\n", ft_atoi_base("501", ""));
-	printf("real = %d\n",  ft_atoi_base_c(NULL, "0123456789"));
 	printf("mine = %d\n", ft_atoi_base(NULL, "0123456789"));
-	printf("real = %d\n",  ft_atoi_base_c("501", NULL));
 	printf("mine = %d\n", ft_atoi_base("501", NULL));
-	printf("real = %d\n",  ft_atoi_base_c("ff", "0123456789abcdef"));
 	printf("mine = %d\n", ft_atoi_base("ff", "0123456789abcdef"));
 //	printf("========================\n");
 	//printf("rbase = %d\n",  ft_check_base(base));
 //	printf("str = %s, base = %s\n", str, base);
-	printf("real = %d\n",  ft_atoi_base_c(str, base));
 	printf("mine = %d\n", ft_atoi_base(str, base));
 }
 
@@ -147,13 +150,13 @@ void	ft_lst_string_display(t_list *lst)
 	printf("list : ");
 	while (lst)
 	{
-		printf("%s ", (int)lst->data);
+		printf("%s ", (char*)lst->data);
 		lst = lst->next;
 	}
 	printf("\n");
 }
 
-int	*compare_integer(void *n1, void *n2)
+int	compare_integer(void *n1, void *n2)
 {
 	return ((int)n1 - (int)n2);
 }

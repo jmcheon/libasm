@@ -1,7 +1,8 @@
-
-;				type	size	name   
-;	argument	char *	8(ptr)	s    
-;	variable	size_t	8(long)	i    
+;	char	*ft_strcpy(char *dst, const char *src);
+;				type	size	name	register 
+;	argument	char *	8(ptr)	dst   	rdi 
+;	argument	char *	8(ptr)	src   	rsi 
+;	variable	size_t	8(long)	i   	rax	
 
 section .text
 	global ft_strcpy

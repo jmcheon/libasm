@@ -1,6 +1,7 @@
-
-;				type	size	name   
-;	argument	char *	8(ptr)	s    
+;	char	*ft_strdup(const char *s);
+;				type	size	name	register
+;	argument	char *	8(ptr)	s   	rdi 
+;	variable	size_t	8(long)	i		rax
 
 section .text
 	global ft_strdup
@@ -14,9 +15,13 @@ ft_strdup:
 	push rdi
 	mov rdi, rax
 	call malloc
-	pop r9
+	cmp rax, 0
+	je .return
 	mov rdi, rax
-	mov rsi, r9
+	pop rsi
 	call ft_strcpy
+	ret
+
+.return:
 	ret
 
